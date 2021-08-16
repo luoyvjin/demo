@@ -10,7 +10,7 @@ class Details extends Component {
             isLoading:true,
             data:[],
             isDraw:false
-        }
+        
     }
     componentDidMount() {
         let value1 = localStorage.getItem('value1'),
