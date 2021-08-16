@@ -56,11 +56,6 @@
     "react-router-dom": "^5.2.0",
     "sass-loader": "^7.3.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/*.{js,jsx,mjs,ts,tsx}": [
       "node_modules/.bin/prettier --write",
@@ -71,5 +66,11 @@
       "node_modules/.bin/prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
+ 
 }
