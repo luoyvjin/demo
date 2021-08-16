@@ -2,11 +2,11 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
     mode: 'development',
-    devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, './public/'),
         publicPath: '/',
-        host: '127.0.0.1',
+        host: 'localhost',
         port: 3000,
         stats: {
             colors: true
@@ -15,10 +15,10 @@ module.exports = {
     entry: './src/index.js',  //添加入口配置项
     //出口文件的配置项
     output:{
-        //输出的路径，用了Node语法
-        path:path.resolve(__dirname,'dist'),
-        //输出的文件名称
-        filename:'bundle.js'
+        //输出的路径
+        path:path.join(__dirname, '/dist'),
+        //文件名加哈希
+        filename: '[name].[chunkhash].js'
     },
     resolve: {
         extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
@@ -58,7 +58,7 @@ module.exports = {
             },
             {
                 //匹配规则
-                test:/\.sass$/,
+                test:/\.scss$/,
                 //loader加载顺序 不能颠倒
                 use: ['style-loader', 'css-loader','sass-loader']
             }
