@@ -56,42 +56,41 @@ class Details extends Component {
     return (
       <div>
         {isDraw ? <h2 style={{ textAlign: "center" }}>Draw</h2> : ""}
-        <div className="row">
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
           {data.map((item, index) => {
             return (
-              <div className="col-lg-6 col-sm-6 col-md-6" key={index}>
-                <div
-                  style={{
-                    backgroundColor: "rgb(221, 221, 221)",
-                    padding: "32px",
-                    borderRadius: "4px",
-                    marginTop: "50px",
-                    maxWidth: "264px",
-                    margin: "20px auto",
-                  }}
-                >
-                  {isDraw ? "" : <h2 style={{ textAlign: "center" }}>{index === 0 ? "Winner" : "Loser"}</h2>}
-                  <div style={{ textAlign: "center" }}>
-                    <img src={item.avatar_url} alt="" style={{ width: "200px", height: "200px" }} />
-                  </div>
-                  <h3 style={{ textAlign: "center" }}>Scores:{item.public_repos}</h3>
-                  <h2 style={{ color: "#1890ff" }}>{item.name}</h2>
-                  <div>
-                    <i className="fa fa-location-arrow" style={{ marginRight: "10px", fontSize: "15px" }}></i>
-                    {item.location}
-                  </div>
-                  <div>
-                    <i className="fa fa-group" style={{ marginRight: "10px", fontSize: "15px" }}></i>
-                    {item.followers}
-                  </div>
-                  <div>
-                    <i className="fa fa-user-plus" style={{ marginRight: "10px", fontSize: "15px" }}></i>
-                    {item.following}
-                  </div>
-                  <div>
-                    <i className="fa fa-code" style={{ marginRight: "10px", fontSize: "15px" }}></i>
-                    {item.public_repos}
-                  </div>
+              <div
+                style={{
+                  backgroundColor: "rgb(221, 221, 221)",
+                  padding: "32px",
+                  borderRadius: "4px",
+                  marginTop: "50px",
+                  maxWidth: "264px",
+                  margin: "20px auto",
+                }}
+                key={index}
+              >
+                {isDraw ? "" : <h2 style={{ textAlign: "center" }}>{index === 0 ? "Winner" : "Loser"}</h2>}
+                <div style={{ textAlign: "center" }}>
+                  <img src={item.avatar_url} alt="" style={{ width: "200px", height: "200px" }} />
+                </div>
+                <h3 style={{ textAlign: "center" }}>Scores:{item.public_repos}</h3>
+                <h2 style={{ color: "#1890ff" }}>{item.name}</h2>
+                <div>
+                  <i className="fa fa-location-arrow" style={{ marginRight: "10px", fontSize: "15px" }}></i>
+                  {item.location}
+                </div>
+                <div>
+                  <i className="fa fa-group" style={{ marginRight: "10px", fontSize: "15px" }}></i>
+                  {item.followers}
+                </div>
+                <div>
+                  <i className="fa fa-user-plus" style={{ marginRight: "10px", fontSize: "15px" }}></i>
+                  {item.following}
+                </div>
+                <div>
+                  <i className="fa fa-code" style={{ marginRight: "10px", fontSize: "15px" }}></i>
+                  {item.public_repos}
                 </div>
               </div>
             );
