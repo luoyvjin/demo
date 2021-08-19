@@ -13,10 +13,24 @@ class Details extends Component {
     };
   }
   componentDidMount() {
-    let value1 = localStorage.getItem("value1"),
-      value2 = localStorage.getItem("value2");
-    this.getData([value1, value2]);
+    const { history } = this.props;
+    if (this.getValue("value1") && this.getValue("value2")) {
+      this.getData([this.getValue("value1"), this.getValue("value2")]);
+    } else {
+      history.push(`/Battle`);
+    }
   }
+  getValue = (variable) => {
+    let query = this.props.history.location.search.substring(1);
+    let vars = query.split("&");
+    for (let i = 0; i < vars.length; i++) {
+      let pair = vars[i].split("=");
+      if (pair[0] == variable) {
+        return pair[1];
+      }
+    }
+    return false;
+  };
   getData = (value) => {
     value.map((item, index) => {
       fetch(`https://api.github.com/users/${item}`)

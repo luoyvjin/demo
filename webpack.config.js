@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
 module.exports = {
   mode: "development",
-  devtool: "source-map",
+  // devtool: "source-map",
   devServer: {
     contentBase: path.join(__dirname, "./public/"),
     publicPath: "/",

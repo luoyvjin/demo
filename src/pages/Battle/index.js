@@ -62,6 +62,15 @@ class Battle extends Component {
       message.error("Player Two必须填写");
     }
   };
+  //图片出错处理
+  onImgErro = (num) => {
+    message.error(`Player ${num}用户不存在请重新输入`);
+    if (num === "One") {
+      this.setState({ flage1: false });
+    } else if (num === "Two") {
+      this.setState({ flage2: false });
+    }
+  };
   render() {
     return (
       <div style={{ padding: "0 30px" }}>
@@ -108,7 +117,14 @@ class Battle extends Component {
                   borderRadius: "10px",
                 }}
               >
-                <img style={{ width: "64px" }} src={`https://github.com/${this.state.inp1}.png?size=200`} alt="" />
+                <img
+                  style={{ width: "64px" }}
+                  src={`https://github.com/${this.state.inp1}.png?size=200`}
+                  alt=""
+                  onError={() => {
+                    this.onImgErro("One");
+                  }}
+                />
                 <div
                   style={{ flexGrow: "1", textAlign: "left", paddingLeft: "10px", fontSize: "32px", color: "#1890ff" }}
                 >
@@ -164,7 +180,14 @@ class Battle extends Component {
                   borderRadius: "10px",
                 }}
               >
-                <img style={{ width: "64px" }} src={`https://github.com/${this.state.inp2}.png?size=200`} alt="" />
+                <img
+                  style={{ width: "64px" }}
+                  src={`https://github.com/${this.state.inp2}.png?size=200`}
+                  alt=""
+                  onError={() => {
+                    this.onImgErro("Two");
+                  }}
+                />
                 <div
                   style={{ flexGrow: "1", textAlign: "left", paddingLeft: "10px", fontSize: "32px", color: "#1890ff" }}
                 >

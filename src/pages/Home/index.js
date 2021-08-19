@@ -1,10 +1,11 @@
 import React, { Component, lazy, Suspense } from "react";
-import Popular from "@/pages/Popular";
+// import Popular from "@/pages/Popular";
 // import Battle from '@/Battle';
 import { HashRouter, Route, Link } from "react-router-dom";
 // import Details from '@/Details';
 const Battle = lazy(() => import("@/pages/Battle"));
 const Details = lazy(() => import("@/pages/Details"));
+const Popular = lazy(() => import("@/pages/Popular"));
 
 class Home extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Home extends Component {
     this.state = {
       pageName: location.hash.substring(1) ? location.hash.substring(1) : "/",
     };
+    console.log(123);
   }
   onSwitch = (str) => {
     this.setState({ pageName: str });
